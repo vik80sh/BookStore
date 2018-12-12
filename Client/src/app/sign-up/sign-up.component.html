@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="row">
+    <h3 >User SignUp </h3>
+    <hr/>
+  </div>
+  <div class="row">
+    <div class="col-sm-12" style="margin:20px">
+      <form  (ngSubmit)="onSubmit()" #data='ngForm'>
+       <div id="user-data">
+         <div class='form-group' ngModelGroup="userData" #userData="ngModelGroup">
+          </div> 
+          <div class='form-group'>
+            <label for="name">Name </label>
+            <input
+                type="text" id="name" class="form-control" ngModel name="name" 
+                required
+            >
+          </div>
+          <div class='form-group'>
+            <label for="name">Email </label>
+            <input
+               type="email" id="email" class="form-control" ngModel name="email" 
+               required 
+               email
+               #email="ngModel"
+            >
+            <span class ="help-block" *ngIf="!email.valid && email.touched">Please Enter Valid E-mail</span>
+         </div>
+            <div class='form-group'>
+                <label for="name">Password </label>
+                <input
+                   type="text" id="password" class="form-control" name="password" 
+                   ngModel 
+                   required
+                >
+              </div>
+              Gender : 
+              <div class="radio" style="margin:20px" *ngFor="let gender of genders">
+                <label>
+                  <input
+                    type="radio" name="gender"  [value]="gender" 
+                    ngModel
+                  >
+                  {{ gender }}
+                </label>
+              </div>
+                <div class='form-group'>
+                    <label for="name">Secret Question </label>
+                    <select
+                       id="secret" class="form-control" [ngModel]="defaultQuestion" name="secret"
+                       required
+                    >
+                      <option value="1">Your First Laptop ?</option>
+                      <option value="2">Your Fav Player ?</option>
+                      <option value="3">Your Fav Actor ?</option>
+                      <option value="3">Your First Mobile ?</option>
+                    </select>
+                  </div>
+
+                  <div class='form-group'>
+                      <label for="name">Answer </label>
+                      <input
+                         type="text" id="answer" class="form-control"  name="answer"
+                         ngModel 
+                         required
+                      >
+                    </div>
+       </div>
+       <span *ngIf="!userData.valid && userData.touched">userdata Is Not Valid</span>
+       <button class="btn btn-primary"
+              type="submit" 
+              style="height:40px;width:75px;"
+              style="margin-top: 20px;margin-left: 200px"
+              [disabled]="!data.valid"
+        >Submit</button>
+      </form>
+    </div>
+    <p style="color: brown"> <b>  {{successMessage}} </b></p>  
+    <br/>
+    <div>
+      <nav>
+        <a routerLink="/signin" routerLinkActive="active"><b style="margin: 20px">I already have account </b></a>
+      </nav>
+    </div>
+    
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<mat-progress-bar mode="indeterminate" *ngIf="!flag1"></mat-progress-bar>
+
+
+    <div *ngIf="flag1">
+        <div class="container-fluid">
+            <div class="row">  
+              <div class="col-sm-9" *ngFor="let book of cartBook">
+                    <hr/>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card" >
+                                <mat-card class="example-card">
+                                <img mat-card-image src={{book.image}} alt="Photo of a Shiba Inu">
+                                </mat-card>
+                            </div>
+                        </div>
+                    
+                        <div class="col-sm-7">
+                            <div class="card" >
+                                <h5>{{book.title }}</h5>
+                                <mat-card-subtitle>Author : {{book.author}}</mat-card-subtitle>
+                                <p>
+                                    <b>Number of Item : {{book.numberOfItem}}  </b>
+                                    <b>Cost : {{book.price}}</b>
+                                </p>
+                            </div>
+                            
+                        </div>
+                       
+                    </div>
+                    
+                </div>
+              <div class="col-sm-3">
+                  <div class="card" *ngIf="cartItem" >
+                    <h5>Price :$ {{totalPrice}}</h5>
+                    <br/>
+                    <h4>Amount Payable: $ {{totalPrice}}</h4>
+                  </div>     
+              </div>
+            </div>
+        </div>
+            <div style="margin:50px" *ngIf="cartItem">
+                <button style="background-color:OrangeRed ;
+                cursor: pointer;margin-left:50px"
+                (click)="home()">CONTINUE SHOPING 
+                </button>
+                <button style="background-color:DarkOrange ;
+                    cursor: pointer;margin-left:20px"
+                    (click)="placeOrder()">PLACE ORDER
+                </button>
+            
+        </div>
+        <div class="card" *ngIf="!cartItem" >
+            <h4>Please Add Item in cart</h4>
+          </div>     
+      </div>

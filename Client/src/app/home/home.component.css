@@ -1,0 +1,8 @@
+.style{
+    background-attachment: fixed;
+    background-color : blue;
+    height: 50px
+}
+.click:hover {
+    cursor: pointer
+}

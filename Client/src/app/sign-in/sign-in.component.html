@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="header" style="margin-top:20px "><b>Login Page</b></div>
+    <hr/>
+    <div class="row"style="margin-top: 70px">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-9">
+          
+          <div> <input type='email' placeholder="Email" #username style="margin: 10px"> </div> 
+          <div> <input placeholder="Password" #password style="margin: 10px"> </div> 
+          <div style="color:red ; margin: 15px"><h6> {{message}}</h6> </div>
+          <button class="btn btn-primary" 
+              style="height:40px;width:75px;"
+              (click)="login(username.value,password.value)"
+              style="margin-top: 10px;margin-left: 20px"
+          >Login</button>
+          <a routerLink='/signup'  style="margin-left:35px;margin-top:25px" ><b>New User?</b></a>
+        <p style="margin:25px"><a routerLink='/forgotPassword' routerLinkActive="active" ><b>Forgot Password</b></a></p> 
+        </div>
+    </div>
+</div>

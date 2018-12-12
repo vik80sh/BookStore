@@ -1,0 +1,20 @@
+.example-card {
+    max-width: 250px;
+    height: 420px;
+    margin : 50px;
+    float:left;
+    border-color:antiquewhite;
+    border: 2px
+}
+.example-card:hover{
+    background-color:wheat;
+    transform: scale(1.007); 
+}
+img{
+    width:200px;
+    height:300px;
+    margin-left:10px;
+}
+.title{
+    width: auto
+}

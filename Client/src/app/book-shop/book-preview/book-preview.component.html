@@ -1,0 +1,46 @@
+<mat-progress-bar mode="indeterminate" *ngIf="!flag1"></mat-progress-bar>
+<div *ngIf="flag1">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-5">
+            <div class="card">
+              <mat-card class="example-card" (click)="oneBook(book._id)">
+                <img mat-card-image src={{book.image}} alt="Photo of a Shiba Inu">
+              </mat-card>
+            </div>
+            <button style="background-color:OrangeRed ;
+                    cursor: pointer;margin-left:50px" (click)="buy()">Buy Now
+            </button>
+            <button style="background-color:DarkOrange ;
+                  cursor: pointer;margin-left:20px"
+                  (click)="addToCart()">Add to cart
+            </button>
+          </div>
+          <div class="col-sm-7">
+            <div class="card">
+              <mat-card class="example-card">
+                <h5>{{book.title }}</h5>
+                <mat-card-subtitle>Author : {{book.author}}</mat-card-subtitle>
+                <span mat-icon-button color="accent">
+                      Rate :<mat-icon color="accent" aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+                      </span><span><b style="margin-right:4px">{{book.rating |pipe : 3 }}</b></span>
+                <br/>
+                <span sytle="margin-top:30px">Total Review : ({{book.raters}})</span>
+                <span style="margin-left:100px"><b> Price : {{book.price}}$</b></span>
+                <br/>
+                <br/>
+                <br/>
+                <p><b>Description </b> : {{book.subtitle | pipe : 380}}
+                  <span *ngIf="!flag" (click)="changeFlag()" style="color:blue;cursor: pointer;">{{message}}</span></p>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="flag" id="id1">
+          <mat-card class="example-card" style="margin:50px">
+            Description :{{book.subtitle}}
+            <span style="color:blue;cursor: pointer;" (click)="changeFlag()">{{message}}</span>
+          </mat-card>
+        </div>
+       </div>
+    </div>
